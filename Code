@@ -1,0 +1,84 @@
+#Constants for the charges per dog
+night_stay = 50.0 #Base rate - Stay per dog
+dog_training = 25.0 #Base Rate - Training
+premium_food = 20.0 #Base Rate - Premium dog food
+
+def menu():
+  print("Canine Lodgings")
+  print("------------------------------------")
+  print("1) Night Stays Per Dog")
+  print("2) Dog Training")
+  print("3) Premium Food")
+  print("4) Message from Canine Lodgings")
+  print("5) Exit Program")
+  choice = int(input("Enter your choice: "))
+  while choice < 1 or choice > 5:
+    print("Invalid Selection. Enter 1,2,3,4, or 5.")
+    choice = int(input("Enter your choice:"))
+  return choice
+
+def stay():
+  print("Canine Lodgings")
+  print("------------------------------------")
+  dogs = int(input("How many dogs will be staying?"))
+  nights = int(input("And for many nights?"))
+  #Calculate charges
+  stay_charges = (dogs * nights) * night_stay
+  #Display Charges
+  print("Number of dogs: ", dogs)
+  print("Stay Charges: $", stay_charges)
+  age = int(input("Enter your dog's age: "))
+  if age > 6:
+    print("Your dog will be with other senior dogs.")
+  else:
+    print("Your dog will be with other younger dogs.")
+  hold_screen()
+
+def training():
+  print("Canine Lodgings")
+  print("------------------------------------")
+  training = int(input("How many dogs will register for training?"))
+  #Calculate base charges
+  training_charges = training * dog_training
+  #Display Charges
+  print("Base Charges: $", training_charges)
+  hold_screen()
+
+def food():
+  print("Canine Lodgings")
+  print("------------------------------------")
+  food = int(input("How many dogs will have premium food?"))
+  #Calculate base charges
+  food_charges = food * premium_food
+  #Display Charges
+  print("Base Charges: $",food_charges)
+  hold_screen()
+
+def message():
+  i = 1
+  while i <=5:
+    print("Hello, we love dogs!")
+    i += 1
+  hold_screen()
+
+def hold_screen():
+  input("Press Enter to return to the main menu.")
+
+def main():
+  while True:
+    selection = menu()
+    if selection == 1:
+      stay()
+    elif selection == 2:
+      training()
+    elif selection == 3:
+      food()
+    elif selection == 4:
+      message()
+    elif selection == 5:
+      print("Exiting program.")
+      break
+    
+main()
+#Sending to Github.
+#
